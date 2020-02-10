@@ -23,22 +23,17 @@ class GifListContainer extends Component {
 	      })
 	}
 
-	handleSearch(search_string) {
+	handleSearch = (search_string) => {
 		fetch(`https://api.giphy.com/v1/gifs/search?q=${search_string}&api_key=dc6zaTOxFJmzC&rating=g`)
 	      .then(response => response.json())
 	      .then(data => {
-	      	debugger
-	      	console.log(data)
 	      	let gif_url_array = []
-	      	for(let i = 0; i<=data.data.length; i++) {
-	      		debugger
+	      	for(let i = 0; i<data.data.length; i++) {
 	      		gif_url_array.push(data.data[i].images.original.url)
 	      	}
 	      	this.setState({gifs: gif_url_array})
 	      })
 	}
-
-
 
 	render () {
 		return (

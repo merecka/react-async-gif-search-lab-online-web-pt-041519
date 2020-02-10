@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 class GifSearch extends Component {
 
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
 			search_string: "Search"
 		}
@@ -24,7 +24,7 @@ class GifSearch extends Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={event => this.props.search(this.state.search_string)}>
+				<form onSubmit={event => this.handleSubmit(event)}>
 					<input type="text" onChange={event => this.handleSearchChange(event)} value={this.state.search_string}/>
 					<input type="submit"/>
 				</form>
